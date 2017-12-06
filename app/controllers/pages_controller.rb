@@ -1,7 +1,18 @@
 class PagesController < ApplicationController
-  def home
+  before_action :authenticate_user, only: [:update, :create, :destroy]
+
+  def index
   end
 
-  def about
+  def show
+  end
+
+  def create
+  end
+
+  def update
+  end
+
+  def destroy
   end
 end

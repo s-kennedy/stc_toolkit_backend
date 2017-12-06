@@ -17,17 +17,21 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.11'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-# gem 'rack-cors'
+gem 'rack-cors'
 
 # Standard Auth0 requirements
 gem 'omniauth', '~> 1.3.1'
 gem 'omniauth-auth0', '~> 1.4.1'
+
+# JWT authentication
+gem 'knock'
+
 # Secrets should never be stored in code
 gem 'dotenv-rails', require: 'dotenv/rails-now', group: [:development, :test]
 
