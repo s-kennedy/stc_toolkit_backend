@@ -1,18 +1,35 @@
 class PagesController < ApplicationController
-  before_action :authenticate_user, only: [:update, :create, :destroy]
+  # before_action :authenticate_user, only: [:update, :create, :destroy]
 
   def index
+    pages = Page.all
+    render json: pages
   end
 
   def show
+    page = Page.find_by(slug: page_params[:slug])
+    render json: page
   end
 
   def create
   end
 
   def update
+    page = Page.find(params[:id])
+
+    if page.update_attributes(page_params)
+      render json: page
+    else
+      render json: { errors: page.errors.full_messages }
+    end
   end
 
   def destroy
+  end
+
+  def page_params
+    load_params = params.require(:page).permit(:id, :slug, :title)
+    load_params[:content] = params[:page][:content]
+    load_params.permit!
   end
 end

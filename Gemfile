@@ -25,10 +25,6 @@ gem 'bcrypt', '~> 3.1.11'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
 
-# Standard Auth0 requirements
-gem 'omniauth', '~> 1.3.1'
-gem 'omniauth-auth0', '~> 1.4.1'
-
 # JWT authentication
 gem 'knock'
 
