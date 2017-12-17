@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  # before_action :authenticate_user, only: [:update, :create, :destroy]
+  include Secured
 
   def index
     pages = Page.all

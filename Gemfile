@@ -27,6 +27,8 @@ gem 'rack-cors'
 
 # JWT authentication
 gem 'knock'
+gem 'jwt'
+gem 'httparty'
 
 # Secrets should never be stored in code
 gem 'dotenv-rails', require: 'dotenv/rails-now', group: [:development, :test]
