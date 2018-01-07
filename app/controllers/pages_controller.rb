@@ -30,6 +30,7 @@ class PagesController < ApplicationController
   def page_params
     load_params = params.require(:page).permit(:id, :slug, :title)
     load_params[:content] = params[:page][:content]
+    load_params[:page_header] = params[:page][:page_header]
     load_params.permit!
   end
 end
