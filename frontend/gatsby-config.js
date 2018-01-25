@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Save the Children Toolkit website`,
   },
-  pathPrefix: `/stc_toolkit`,
+  pathPrefix: `/stc_toolkit_cms`,
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
