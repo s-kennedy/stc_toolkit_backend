@@ -31,6 +31,8 @@ gem 'jwt'
 # job runner for active jobs
 gem 'resque'
 
+gem 'whenever', require: false
+
 # Secrets should never be stored in code
 gem 'dotenv-rails', require: 'dotenv/rails-now', group: [:development, :test]
 
