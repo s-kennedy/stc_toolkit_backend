@@ -16,6 +16,7 @@
     "gatsby-plugin-favicon": "^2.1.1",
     "gatsby-plugin-react-helmet": "^1.0.8",
     "gatsby-plugin-sass": "^1.0.14",
+    "gh-pages": "^1.1.0",
     "html-to-draftjs": "^1.1.1",
     "immutability-helper": "^2.6.0",
     "immutable": "^3.8.2",
@@ -41,7 +42,6 @@
     "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   },
   "devDependencies": {
-    "gh-pages": "^1.1.0",
     "prettier": "^1.8.2"
   }
 }
