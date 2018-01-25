@@ -1,6 +1,8 @@
 import React from 'react'
-import ImageUploader from 'react-images-upload';
+import ImageUploader from '../../assets/js/react-images-upload/index.js';
 import EditorWrapper from './EditorWrapper';
+
+import '../../assets/js/react-images-upload/index.css';
 
 const styles = {
   header: {
