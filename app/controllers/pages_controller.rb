@@ -18,6 +18,7 @@ class PagesController < ApplicationController
     page = Page.find(params[:id])
 
     if page.update_attributes(page_params)
+      BuildAndDeployFrontendJob.perform_later
       render json: page
     else
       render json: { errors: page.errors.full_messages }
