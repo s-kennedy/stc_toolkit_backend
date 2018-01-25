@@ -135,21 +135,21 @@ export default class Navigation extends React.Component {
                   Toolkit
                 </DropdownToggle>
                 <DropdownMenu>
-                  <DropdownItem>
+                  <div className='dropdown-item'>
                     <Link className='nav-link' to='/building-blocks/analysis'>
                       Building Block A: Analysis
                     </Link>
-                  </DropdownItem>
-                  <DropdownItem>
+                  </div>
+                  <div className='dropdown-item'>
                     <Link className='nav-link' to='/building-blocks/design'>
                       Building Block B: Design
                     </Link>
-                  </DropdownItem>
-                  <DropdownItem>
+                  </div>
+                  <div className='dropdown-item'>
                     <Link className='nav-link' to='/building-blocks/meal'>
                       Building Block C: MEAL
                     </Link>
-                  </DropdownItem>
+                  </div>
                 </DropdownMenu>
               </UncontrolledDropdown>
 
@@ -160,9 +160,9 @@ export default class Navigation extends React.Component {
                 <DropdownMenu>
                   {
                     aboutPages.map((page, index) => (
-                      <DropdownItem key={index}>
+                      <div className='dropdown-item' key={index}>
                         <Link className='nav-link' to={`/${page.node.fields.slug}`}>{page.node.fields.title}</Link>
-                      </DropdownItem>
+                      </div>
                     ))
                   }
                 </DropdownMenu>
@@ -175,9 +175,9 @@ export default class Navigation extends React.Component {
                 <DropdownMenu>
                   {
                     referencePages.map((page, index) => (
-                      <DropdownItem key={index}>
+                      <div className='dropdown-item' key={index}>
                         <Link className='nav-link' to={`/${page.node.fields.slug}`}>{page.node.fields.title}</Link>
-                      </DropdownItem>
+                      </div>
                     ))
                   }
                 </DropdownMenu>

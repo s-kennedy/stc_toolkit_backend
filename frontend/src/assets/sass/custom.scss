@@ -102,7 +102,7 @@ section.call-to-action {
     text-align: center;
   }
 
-  button.stc-btn {
+  .stc-btn {
     background-color: white;
 
     a {
@@ -124,20 +124,17 @@ section.call-to-action {
   }
 }
 
-button {
+.stc-btn {
   cursor: pointer;
+  background-color: $red;
+  border: none;
 
-  &.stc-btn {
-    background-color: $red;
-    border: none;
+  &:active, &:hover, &:focus {
+    background-color: transparentize($red, 0.1);
+  }
 
-    &:active, &:hover, &:focus {
-      background-color: transparentize($red, 0.1);
-    }
-
-    a {
-      color: white;
-    }
+  a {
+    color: white;
   }
 }
 
