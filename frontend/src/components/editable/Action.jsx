@@ -2,7 +2,7 @@ import React from 'react'
 
 import DisplayAction from '../display/Action'
 import Editable from './Editable'
-import PlainTextEditor from '../editingTools/PlainTextEditor'
+import LinkEditor from '../editingTools/LinkEditor'
 
 class Action extends React.Component {
   static propTypes = {};
@@ -18,21 +18,21 @@ class Action extends React.Component {
     this.setState({ editing: !this.state.editing })
   }
 
-  _doneEditing(text) {
+  _doneEditing(updatedLink) {
     this.toggleEditing();
-    this.props.updateContent(this.props.sectionIndex, this.props.index, { text })
+    this.props.updateContent(this.props.sectionIndex, this.props.index, updatedLink)
   }
 
   render() {
     if (this.state.editing) {
       return (
-        <PlainTextEditor doneEditing={this.doneEditing} text={this.props.text} />
+        <LinkEditor doneEditing={this.doneEditing} anchor={this.props.text} link={this.props.link} />
       )
     }
 
     return (
       <Editable toggleEditing={this.toggleEditing} {...this.props}>
-        <DisplayAction text={this.props.text} />
+        <DisplayAction anchor={this.props.anchor} link={this.props.link} />
       </Editable>
     )
   }

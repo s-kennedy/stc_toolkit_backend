@@ -114,7 +114,8 @@ const generateContentComponents = (contentJson=[], sectionIndex, onUpdate, onAdd
           key={index}
           index={index}
           sectionIndex={sectionIndex}
-          text={obj.text}
+          anchor={obj.anchor}
+          link={obj.link}
           updateContent={onUpdate}
           deleteContent={onDeleteContentItem}
         />);
@@ -197,6 +198,9 @@ const EditableInnerContentContainer = (props) => {
               </DropdownItem>
               <DropdownItem onClick={generateAddContentItemHandler('button')}>
                 Button
+              </DropdownItem>
+              <DropdownItem onClick={generateAddContentItemHandler('action')}>
+                Action
               </DropdownItem>
               <DropdownItem onClick={generateAddSectionHandler('section')}>
                 Section

@@ -7,7 +7,9 @@ const styles = {
 }
 const Action = (props) => {
   return (
-    <p style={styles.text}>{ props.text }</p>
+    <div className="action-link">
+      <a href={props.link}><p style={styles.text}>{props.anchor}</p></a>
+    </div>
   )
 }
 

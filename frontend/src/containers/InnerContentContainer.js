@@ -32,7 +32,7 @@ const generateContentComponents = (contentJson=[]) => {
       case 'name':
         return <Name key={index} text={obj.text} />
       case 'action':
-        return <Action key={index} text={obj.text} />
+        return <Action key={index} anchor={obj.anchor} link={obj.link} />
     }
   })
 }
