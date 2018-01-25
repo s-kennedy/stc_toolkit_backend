@@ -126,19 +126,26 @@ section.call-to-action {
 
 button, .stc-btn {
   cursor: pointer;
-  background-color: $red;
   border: none;
 
-  &:active, &:hover, &:focus {
-    background-color: transparentize($red, 0.1);
-  }
+  &.btn-red {
+    background-color: $red;
 
-  a {
-    color: white;
+    &:active, &:hover, &:focus {
+      background-color: transparentize($red, 0.1);
+    }
+
+    a {
+      color: white;
+    }
   }
 
   &.btn-white {
     background-color: white;
+
+    &:active, &:hover, &:focus {
+      background-color: transparentize(white, 0.1);
+    }
 
     a {
       color: $black;

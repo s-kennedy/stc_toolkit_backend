@@ -10,7 +10,7 @@ const styles = {
 
 const CustomButton = (props) => {
   return (
-    <div className="stc-btn btn" style={styles.button}>
+    <div className="stc-btn btn btn-red" style={styles.button}>
       <Link to={ props.link }>{ props.anchor }</Link>
     </div>
   )
