@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import Link from 'gatsby-link';
 
 const styles = {
   text: {
@@ -8,7 +9,9 @@ const styles = {
 const Action = (props) => {
   return (
     <div className="action-link">
-      <a href={props.link}><p style={styles.text}>{props.anchor}</p></a>
+      <Link to={props.link}>
+        <p style={styles.text}>{props.anchor}</p>
+      </Link>
     </div>
   )
 }

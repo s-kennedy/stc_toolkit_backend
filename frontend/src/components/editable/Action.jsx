@@ -26,7 +26,7 @@ class Action extends React.Component {
   render() {
     if (this.state.editing) {
       return (
-        <LinkEditor doneEditing={this.doneEditing} anchor={this.props.text} link={this.props.link} />
+        <LinkEditor doneEditing={this.doneEditing} anchor={this.props.anchor} link={this.props.link} />
       )
     }
 

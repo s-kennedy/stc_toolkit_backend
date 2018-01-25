@@ -5,6 +5,8 @@ exports.sourceNodes = ({ boundActionCreators }, { resourceType }) => {
   const { createNode } = boundActionCreators;
   const url = `https://sheltered-plains-68895.herokuapp.com/${resourceType}`;
 
+  console.log("Sourcing content from " + url)
+
   return new Promise((resolve, reject) => {
     axios.get(url)
       .then((response) => {
