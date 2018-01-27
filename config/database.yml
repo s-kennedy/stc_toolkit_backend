@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: toolkit_cms_production
-  username: toolkit_cms
+  username: rails
   password: <%= ENV['TOOLKIT_CMS_DATABASE_PASSWORD'] %>
