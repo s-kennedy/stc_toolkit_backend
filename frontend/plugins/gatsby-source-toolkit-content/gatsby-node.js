@@ -3,7 +3,7 @@ const crypto = require(`crypto`);
 
 exports.sourceNodes = ({ boundActionCreators }, { resourceType }) => {
   const { createNode } = boundActionCreators;
-  const url = `https://sheltered-plains-68895.herokuapp.com/${resourceType}`;
+  const url = `http://138.197.137.87/${resourceType}`;
 
   console.log("Sourcing content from " + url)
 
