@@ -15,7 +15,9 @@ class JsonWebToken
   end
 
   def self.jwks_hash
-    jwks_raw = Net::HTTP.get URI("#{ENV["AUTH0_DOMAIN"]}.well-known/jwks.json")
+    url = "#{ENV["AUTH0_DOMAIN"]}.well-known/jwks.json"
+    Rails.logger.info "================ URL for jwks.json => #{url} ================"
+    jwks_raw = Net::HTTP.get URI(url)
     jwks_keys = Array(JSON.parse(jwks_raw)['keys'])
     Hash[
       jwks_keys
