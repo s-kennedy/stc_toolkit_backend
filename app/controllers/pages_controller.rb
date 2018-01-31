@@ -29,7 +29,8 @@ class PagesController < ApplicationController
 
   def deploy
     Rails.logger.info "=================== ATTEMPTING TO DEPLOY FRONTEND ===================="
-    sh "cd ~/stc_toolkit_cms/frontend && yarn deploy &"
+    system "cd frontend && yarn deploy &"
+    render json: { status: "Deployed" }
   end
 
   def page_params
