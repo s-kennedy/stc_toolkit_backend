@@ -87,7 +87,7 @@ export function deploy(token) {
     api.get('/deploy', { headers: { 'Authorization': 'Bearer ' + token } })
     .then(res => {
       console.log(res)
-      dispatch(showNotification(res, 'success'))
+      dispatch(showNotification("Deploy sent", 'success'))
     })
     .catch(err => dispatch(showNotification(err, 'danger')))
   }
