@@ -82,6 +82,17 @@ export function savePage(pageData, content, token) {
   }
 }
 
+export function deploy(token) {
+  return dispatch => {
+    api.get('/deploy', { headers: { 'Authorization': 'Bearer ' + token } })
+    .then(res => {
+      console.log(res)
+      dispatch(showNotification(res, 'success'))
+    })
+    .catch(err => dispatch(showNotification(err, 'danger')))
+  }
+}
+
 export function savingPage() {
   return { type: 'SAVING_PAGE' }
 }

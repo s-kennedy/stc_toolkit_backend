@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { toggleEditing, savePage, toggleNewPageModal, createPage } from '../redux/actions'
+import { toggleEditing, savePage, toggleNewPageModal, createPage, deploy } from '../redux/actions'
 import AdminToolbar from '../components/AdminToolbar'
 
 const mapStateToProps = (state, ownProps) => {
@@ -27,6 +27,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     savePage: (pageData, content, token) => {
       dispatch(savePage(pageData, content, token))
+    },
+    deploy: (token) => {
+      dispatch(deploy(token))
     }
   }
 }

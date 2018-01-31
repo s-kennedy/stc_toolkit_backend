@@ -18,7 +18,6 @@ class PagesController < ApplicationController
     page = Page.find(params[:id])
 
     if page.update_attributes(page_params)
-      BuildAndDeployFrontendJob.perform_later
       render json: page
     else
       render json: { errors: page.errors.full_messages }
@@ -26,6 +25,11 @@ class PagesController < ApplicationController
   end
 
   def destroy
+  end
+
+  def deploy
+    Rails.logger.info "=================== ATTEMPTING TO DEPLOY FRONTEND ===================="
+    sh "cd ~/stc_toolkit_cms/frontend && yarn deploy &"
   end
 
   def page_params

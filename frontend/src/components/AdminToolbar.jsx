@@ -34,6 +34,7 @@ export default class AdminToolbar extends React.Component {
     this.auth = new AuthService();
     this.savePageToDatabase = () => this._savePageToDatabase();
     this.createPage = () => this._createPage();
+    this.deploy = () => this._deploy();
     this.state = {
       isOpen: false
     };
@@ -55,6 +56,11 @@ export default class AdminToolbar extends React.Component {
     this.props.createPage(this.state.newPage, token)
   }
 
+  _deploy() {
+    const token = this.auth.getToken();
+    this.props.deploy(token);
+  }
+
   render() {
     if (this.props.isLoggedIn && this.props.allowEditing) {
       const editingText = this.props.isEditingPage ? 'Stop editing' : 'Edit this page';
@@ -70,6 +76,9 @@ export default class AdminToolbar extends React.Component {
                 </NavItem>
                 <NavItem>
                   { this.props.isEditingPage && <Button style={styles.saveBtn} onClick={this.savePageToDatabase}>Save changes</Button> }
+                </NavItem>
+                <NavItem>
+                  { !this.props.isEditingPage && <Button style={styles.saveBtn} onClick={this.deploy}>Deploy website</Button> }
                 </NavItem>
               </Nav>
             </Collapse>
