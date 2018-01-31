@@ -77,9 +77,6 @@ export default class AdminToolbar extends React.Component {
                 <NavItem>
                   { this.props.isEditingPage && <Button style={styles.saveBtn} onClick={this.savePageToDatabase}>Save changes</Button> }
                 </NavItem>
-                <NavItem>
-                  { !this.props.isEditingPage && <Button style={styles.saveBtn} onClick={this.deploy}>Deploy website</Button> }
-                </NavItem>
               </Nav>
             </Collapse>
           </Navbar>

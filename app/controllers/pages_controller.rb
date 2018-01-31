@@ -1,5 +1,3 @@
-require 'open3'
-
 class PagesController < ApplicationController
   include Secured
 
@@ -31,7 +29,7 @@ class PagesController < ApplicationController
 
   def deploy
     Rails.logger.info "=================== ATTEMPTING TO DEPLOY FRONTEND ===================="
-    stdout_str, error_str, status = Open3.capture3("cd frontend && yarn deploy")
+    status = system "cd frontend && yarn deploy &"
     render json: { status: status }
   end
 
