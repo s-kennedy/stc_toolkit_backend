@@ -85,7 +85,9 @@ export function savePage(pageData, content, token) {
 
 export function deploy(token) {
   return dispatch => {
-    axios.get(`${API_URL}/deploy`, { headers: { 'Authorization': 'Bearer ' + token } })
+    const url = `${API_URL}/deploy`;
+
+    axios.get(url, { headers: { 'Authorization': 'Bearer ' + token } })
     .then(res => {
       console.log(res)
       dispatch(showNotification("The website is being deployed - this may take a few minutes.", 'success'))

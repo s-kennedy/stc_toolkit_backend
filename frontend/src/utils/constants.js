@@ -8,4 +8,4 @@ export const emptyContentItems = {
   call_to_action: { 'type': 'call_to_action', content: [] }
 };
 
-export const API_URL = 'https://toolkit.sharonkennedy.ca'
+export const API_URL = 'https://toolkit.sharonkennedy.ca';
