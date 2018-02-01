@@ -1,4 +1,5 @@
-import { api } from '../utils/init';
+import axios from 'axios';
+import { API_URL } from '../utils/constants'
 
 // AUTHENTICATION ------------------------
 
@@ -33,12 +34,12 @@ export function toggleNewPageModal() {
 export function createPage(pageData, token) {
   return dispatch => {
     console.log(pageData)
-    const url = `/pages/`;
+    const url = `${API_URL}/pages/`;
     const data = {
       page: pageData
     }
 
-    api.post(url, data, { headers: { 'Authorization': 'Bearer ' + token } })
+    axios.post(url, data, { headers: { 'Authorization': 'Bearer ' + token } })
       .then((res) => {
         dispatch(toggleNewPageModal())
         if (res.status === 200) {
@@ -59,7 +60,7 @@ export function savePage(pageData, content, token) {
     dispatch(savingPage());
 
     const pageId = pageData.id;
-    const url = `/pages/${pageId}`;
+    const url = `${API_URL}/pages/${pageId}`;
     const data = {
       page: {
         content: content.body,
@@ -69,7 +70,7 @@ export function savePage(pageData, content, token) {
       id: pageId
     }
 
-    api.put(url, data, { headers: { 'Authorization': 'Bearer ' + token } })
+    axios.put(url, data, { headers: { 'Authorization': 'Bearer ' + token } })
       .then((res) => {
         dispatch(toggleEditing())
         if (res.status === 200) {
@@ -84,7 +85,7 @@ export function savePage(pageData, content, token) {
 
 export function deploy(token) {
   return dispatch => {
-    api.get('/deploy', { headers: { 'Authorization': 'Bearer ' + token } })
+    axios.get(`${API_URL}/deploy`, { headers: { 'Authorization': 'Bearer ' + token } })
     .then(res => {
       console.log(res)
       dispatch(showNotification("The website is being deployed - this may take a few minutes.", 'success'))

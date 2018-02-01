@@ -6,4 +6,6 @@ export const emptyContentItems = {
   button: { 'type': 'button', 'link': '/', 'anchor': 'Placeholder' },
   action: { 'type': 'action', 'link': '/', 'anchor': 'Placeholder' },
   call_to_action: { 'type': 'call_to_action', content: [] }
-}
+};
+
+export const API_ENDPOINT = 'https://toolkit.sharonkennedy.ca'
