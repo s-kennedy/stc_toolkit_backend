@@ -1,8 +1,0 @@
-{
-  "engines" : {
-    "node": "6.9.2"
-  },
-  "scripts" : {
-    "heroku-postbuild": "cd frontend && yarn install"
-  }
-}
