@@ -28,7 +28,7 @@ class PagesController < ApplicationController
   end
 
   def deploy
-    Rails.logger.info "=================== ATTEMPTING TO DEPLOY FRONTEND ===================="
+    Rails.logger.info "=================== ATTEMPTING TO DEPLOY FRONTEND on #{Rails.env} ===================="
     status = system "cd frontend && yarn deploy &"
     render json: { status: status }
   end

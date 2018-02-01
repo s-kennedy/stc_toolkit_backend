@@ -3,6 +3,7 @@ const crypto = require(`crypto`);
 
 exports.sourceNodes = ({ boundActionCreators }, { resourceType }) => {
   const { createNode } = boundActionCreators;
+  // const url = `http://localhost:3000/${resourceType}`;
   const url = `https://toolkit.sharonkennedy.ca/${resourceType}`;
 
   console.log("Sourcing content from " + url)
