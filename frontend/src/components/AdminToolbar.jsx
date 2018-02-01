@@ -15,11 +15,15 @@ import { savePage } from '../utils/API';
 
 const styles = {
   toolbar: {
-    backgroundColor: '#9A3324',
+    backgroundColor: '#9A3324', //plum
     color: '#FFF'
   },
   saveBtn: {
-    backgroundColor: '#009CA6',
+    backgroundColor: '#009CA6', //teal
+    color: '#FFF'
+  },
+  deployBtn: {
+    backgroundColor: '#F2A900', //mustard
     color: '#FFF'
   },
   navButton: {
@@ -78,7 +82,7 @@ export default class AdminToolbar extends React.Component {
                   { this.props.isEditingPage && <Button style={styles.saveBtn} onClick={this.savePageToDatabase}>Save changes</Button> }
                 </NavItem>
                 <NavItem>
-                  { !this.props.isEditingPage && <Button style={styles.saveBtn} onClick={this.deploy}>Deploy website</Button> }
+                  { !this.props.isEditingPage && <Button style={styles.deployBtn} onClick={this.deploy}>Deploy website</Button> }
                 </NavItem>
               </Nav>
             </Collapse>
