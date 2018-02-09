@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import AuthService from '../utils/AuthService'
+import CreatePageModalContainer from '../containers/CreatePageModalContainer'
 
 import {
   Button,
@@ -8,8 +9,7 @@ import {
   Navbar,
   NavbarToggler,
   Nav,
-  NavItem,
-  Modal } from 'reactstrap';
+  NavItem } from 'reactstrap';
 
 import { savePage } from '../utils/API';
 
@@ -55,14 +55,14 @@ export default class AdminToolbar extends React.Component {
     this.props.savePage(this.props.pageData, this.props.content, token)
   }
 
-  _createPage() {
+  _createPage(pageData) {
     const token = this.auth.getToken();
-    this.props.createPage(this.state.newPage, token)
+    this.props.createPage(pageData, token)
   }
 
   _deploy() {
     const token = this.auth.getToken();
-    this.props.deploy(token);
+    // this.props.deploy(token);
   }
 
   render() {
@@ -76,34 +76,37 @@ export default class AdminToolbar extends React.Component {
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ml-auto" navbar>
                 <NavItem style={styles.navButton}>
-                  <Button color='white' onClick={this.props.onToggleEditing}>{editingText}</Button>
+                  {
+                    !this.props.isEditingPage &&
+                    <Button color='white' onClick={this.props.onToggleNewPageModal}>
+                      Add new page
+                    </Button>
+                  }
                 </NavItem>
-                <NavItem>
-                  { this.props.isEditingPage && <Button style={styles.saveBtn} onClick={this.savePageToDatabase}>Save changes</Button> }
+                <NavItem style={styles.navButton}>
+                  <Button color='white' onClick={this.props.onToggleEditing}>
+                    {editingText}
+                  </Button>
                 </NavItem>
-                <NavItem>
-                  { !this.props.isEditingPage && <Button style={styles.deployBtn} onClick={this.deploy}>Deploy website</Button> }
+                <NavItem style={styles.navButton}>
+                  {
+                    this.props.isEditingPage &&
+                    <Button style={styles.saveBtn} onClick={this.savePageToDatabase}>
+                      Save changes
+                    </Button> }
+                </NavItem>
+                <NavItem style={styles.navButton}>
+                  {
+                    !this.props.isEditingPage &&
+                    <Button style={styles.deployBtn} onClick={this.deploy}>
+                      Deploy website
+                    </Button>
+                  }
                 </NavItem>
               </Nav>
             </Collapse>
           </Navbar>
-          <Modal isOpen={this.props.showNewPageModal}>
-            <div>
-              <Button onClick={this.props.onToggleNewPageModal}>x</Button>
-            </div>
-            <div>
-              Select page type
-            </div>
-            <div>
-              Page Title
-            </div>
-            <div>
-              Page belongs to
-            </div>
-            <div>
-              <Button onClick={this.createPage}>Create Page</Button>
-            </div>
-          </Modal>
+          <CreatePageModalContainer pages={this.props.pages} createPage={this.createPage}/>
         </div>
       );
     } else {

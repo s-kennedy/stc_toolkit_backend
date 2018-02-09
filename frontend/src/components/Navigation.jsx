@@ -116,9 +116,9 @@ export default class Navigation extends React.Component {
   }
 
   render() {
-    const aboutPages = filter(this.props.data, (page) => ( page.node.fields.category === 'about' ));
-    const referencePages = filter(this.props.data, (page) => ( page.node.fields.category === 'reference' ));
-    const toolkitPages = filter(this.props.data, (page) => ( page.node.fields.category === 'building_block' ));
+    const aboutPages = filter(this.props.pages, (page) => ( page.node.fields.category === 'about' ));
+    const referencePages = filter(this.props.pages, (page) => ( page.node.fields.category === 'reference' ));
+    const toolkitPages = filter(this.props.pages, (page) => ( page.node.fields.category === 'building_block' ));
 
     return (
       <div>

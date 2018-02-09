@@ -9,8 +9,7 @@ const mapStateToProps = (state, ownProps) => {
     isEditingPage: state.adminTools.isEditingPage,
     content: state.content,
     pageData: state.pageData,
-    allowEditing: allowEditing,
-    showNewPageModal: state.adminTools.showNewPageModal
+    allowEditing: allowEditing
   }
 }
 

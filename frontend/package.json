@@ -3,7 +3,7 @@
   "description": "Child Sensitivity in Poverty Alleviation Programming: An Analytical Toolkit",
   "version": "1.0.0",
   "author": "Sharon Kennedy <sharon.peishan.kennedy@gmail.com>",
-  "engines" : {
+  "engines": {
     "node": "8.9.4"
   },
   "dependencies": {
@@ -28,6 +28,7 @@
     "react-fontawesome": "^1.6.1",
     "react-images-upload": "^1.1.1",
     "react-redux": "^5.0.6",
+    "react-select": "^1.2.1",
     "reactstrap": "^5.0.0-alpha.4",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0"

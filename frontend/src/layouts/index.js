@@ -33,8 +33,8 @@ export default class TemplateWrapper extends React.Component {
           <script src="https://cdn.auth0.com/js/lock/10.24.1/lock.min.js"></script>
         </Helmet>
         <NotificationContainer />
-        <NavigationContainer data={this.props.data.allPages.edges} />
-        <AdminToolbarContainer />
+        <NavigationContainer pages={this.props.data.allPages.edges} />
+        <AdminToolbarContainer pages={this.props.data.allPages.edges} />
         <div>
           {this.props.children()}
         </div>

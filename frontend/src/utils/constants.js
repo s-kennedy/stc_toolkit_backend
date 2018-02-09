@@ -9,3 +9,12 @@ export const emptyContentItems = {
 };
 
 export const API_URL = 'https://toolkit.sharonkennedy.ca';
+
+export const PAGE_TYPES = [
+  { label: 'About', value: 'about' },
+  { label: 'Building Block', value: 'building_block' },
+  { label: 'Action', value: 'action' },
+  { label: 'Tool', value: 'tool' },
+  { label: 'Case Study', value: 'case_study' },
+  { label: 'Reference', value: 'reference' },
+]
