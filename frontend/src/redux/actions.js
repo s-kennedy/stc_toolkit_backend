@@ -11,6 +11,10 @@ export function userLoggedOut() {
   return { type: 'USER_LOGGED_OUT' }
 }
 
+export function toggleRegistrationModal() {
+  return { type: 'TOGGLE_REGISTRATION_MODAL' }
+}
+
 // NOTIFICATIONS ------------------------
 
 export function showNotification(message, color) {

@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "author": "Sharon Kennedy <sharon.peishan.kennedy@gmail.com>",
   "engines": {
-    "node": "8.9.4"
+    "node": "^8.9.4"
   },
   "dependencies": {
     "auth0-lock": "^10.24.1",
@@ -13,6 +13,7 @@
     "crypto": "^1.0.1",
     "draft-js": "^0.10.4",
     "draftjs-to-html": "^0.8.1",
+    "firebase": "^4.9.1",
     "gatsby": "^1.9.172",
     "gatsby-cli": "^1.1.29",
     "gatsby-link": "^1.6.30",
@@ -25,6 +26,7 @@
     "immutable": "^3.8.2",
     "lodash": "^4.17.4",
     "react-draft-wysiwyg": "^1.11.0",
+    "react-firebaseui": "^1.1.6",
     "react-fontawesome": "^1.6.1",
     "react-images-upload": "^1.1.1",
     "react-redux": "^5.0.6",

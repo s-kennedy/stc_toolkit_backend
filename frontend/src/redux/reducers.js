@@ -12,6 +12,8 @@ export const adminTools = (state={}, action) => {
       return { ...state, isEditingPage: !state.isEditingPage }
     case 'TOGGLE_NEW_PAGE_MODAL':
       return { ...state, showNewPageModal: !state.showNewPageModal }
+    case 'TOGGLE_REGISTRATION_MODAL':
+      return { ...state, showRegistrationModal: !state.showRegistrationModal }
     case 'SAVING_PAGE':
       return { ...state, savingPage: true }
     case 'SAVE_PAGE_SUCCESS':

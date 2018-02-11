@@ -1,10 +1,12 @@
 import { connect } from 'react-redux'
-import { userLoggedIn, userLoggedOut } from '../redux/actions'
+import { userLoggedIn, userLoggedOut, toggleRegistrationModal } from '../redux/actions'
+
 import Navigation from '../components/Navigation'
 
 const mapStateToProps = (state) => {
   return {
     isLoggedIn: state.adminTools.isLoggedIn,
+    showRegistrationModal: state.adminTools.showRegistrationModal,
   }
 }
 
@@ -15,7 +17,10 @@ const mapDispatchToProps = (dispatch) => {
     },
     userLoggedOut: () => {
       dispatch(userLoggedOut())
-    }
+    },
+    onToggleRegistrationModal: () => {
+      dispatch(toggleRegistrationModal())
+    },
   }
 }
 

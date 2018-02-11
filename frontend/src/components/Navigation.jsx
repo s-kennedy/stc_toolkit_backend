@@ -5,6 +5,8 @@ import Link, { navigateTo } from 'gatsby-link';
 import logo from '../assets/img/STC_Logo_Horiz.png';
 import AuthService from '../utils/AuthService'
 import { lock } from '../utils/init'
+import RegistrationModal from './RegistrationModal'
+import firebase from '../firebase/init';
 
 import {
   Button,
@@ -34,23 +36,26 @@ export default class Navigation extends React.Component {
   constructor(props) {
     super(props);
     this.toggle = this.toggle.bind(this);
+    this.logout = () => this._logout();
     this.state = {
       isOpen: false
     };
-    this.login = () => this._login()
-    this.logout = () => this._logout()
-    this.initializeLock = () => this._initializeLock()
-    this.checkPreviousAuthentication = () => this._checkPreviousAuthentication();
-    this.auth = new AuthService();
   }
 
-  componentDidMount() {
-    this.initializeLock()
-    this.checkPreviousAuthentication()
+  componentWillMount() {
+    firebase.auth().onAuthStateChanged((user) => {
+      console.log('user', user)
+      if (!!user) {
+        this.props.userLoggedIn()
+        this.props.onToggleRegistrationModal();
+        console.log('user logged in')
+      }
+    });
   }
 
-  componentWillReceiveProps() {
-    this.checkPreviousAuthentication()
+  _logout() {
+    firebase.auth().signOut();
+    this.props.userLoggedOut();
   }
 
   toggle() {
@@ -59,56 +64,9 @@ export default class Navigation extends React.Component {
     });
   }
 
-  _login() {
-    this.lock.show()
-  }
-
-  _logout() {
-    this.auth.logout();
-    this.props.userLoggedOut();
-  }
-
-  _checkPreviousAuthentication() {
-    if (this.auth.loggedIn()) {
-      const roles = this.auth.rolesFromToken()
-      this.props.userLoggedIn(roles);
-    } else {
-      this.logout();
-    }
-  }
-
-  _initializeLock() {
-    try {
-      this.lock = new Auth0Lock(process.env.AUTH0_CLIENT_ID, process.env.AUTH0_DOMAIN, {
-        oidcConformant: true,
-        auth: {
-          redirectUrl: process.env.AUTH0_REDIRECT_URL,
-          responseType: 'token',
-          audience: 'stc_toolkit_api',
-          params: {
-            scope: 'openid email'
-          }
-        },
-        theme: {
-          logo: logo,
-          primaryColor: '#DA201C' // red
-        },
-        languageDictionary: {
-          title: "Child Sensitivity Toolkit"
-        }
-      })
-      this.lock.on('authenticated', (authResult) => {
-        this.auth.setToken(authResult.accessToken);
-        const roles = this.auth.rolesFromToken()
-        this.props.userLoggedIn(roles);
-      })
-    } catch(e) {
-      setTimeout(() => { this.initializeLock() }, 100)
-    }
-  }
 
   renderSignInUp = () => {
-    return <Button color="secondary" onClick={this.login}>Sign In / Sign Up</Button>
+    return <Button color="secondary" onClick={this.props.onToggleRegistrationModal}>Sign In / Sign Up</Button>
   }
 
   renderLogOut = () => {
@@ -188,6 +146,11 @@ export default class Navigation extends React.Component {
             </Nav>
           </Collapse>
         </Navbar>
+        <RegistrationModal
+          firebase={firebase}
+          isOpen={this.props.showRegistrationModal}
+          onToggleRegistrationModal={this.props.onToggleRegistrationModal}
+        />
       </div>
     );
   }

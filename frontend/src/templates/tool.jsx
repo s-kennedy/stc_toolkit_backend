@@ -47,19 +47,3 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ToolPage)
-
-
-export const query = graphql`
-  query ToolPageQuery($slug: String!) {
-    pages(fields: { slug: { eq: $slug } }) {
-      internal {
-        content
-      }
-      childPagesContent {
-        internal {
-          content
-        }
-      }
-    }
-  }
-`;
